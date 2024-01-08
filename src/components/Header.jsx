@@ -1,18 +1,47 @@
 import React, { useState } from "react";
+import { FiMenu } from "react-icons/fi";
+import { IconContext } from "react-icons";
+import CartSideBar from "./CartSideBar";
+import SideBarMenu from "./SideBarMenu";
 
 function Header() {
-  const [displayCart, setCartNotis] = useState(10);
+  const [displayCart, setCartNotis] = useState(1);
   const [openCart, setOpenCart] = useState(false);
+  const [openSideBar, setOpenSideBar] = useState(false);
+
+  function handleOpenCart() {
+    setOpenCart((e) => !e);
+    setOpenSideBar(false);
+  }
+
+  function handleOpenSidebar() {
+    setOpenSideBar((e) => !e);
+    setOpenCart(false);
+  }
   return (
     <React.Fragment>
       <header className=" flex items-center justify-between ">
         <aside>
-          <img src="/img/Logo.png" alt="Logo" className=" w-32 py" />
+          <img
+            src="/img/Logo.png"
+            alt="Logo"
+            className=" w-32 md:w-28 hidden md:block pt-1"
+          />
+
+          <IconContext.Provider
+            value={{
+              size: "36px",
+              className:
+                "block md:hidden cursor-pointer z-50 absolute top-[21px]",
+            }}
+          >
+            <FiMenu onClick={handleOpenSidebar} />
+          </IconContext.Provider>
         </aside>
-        <div className=" relative min-w-80">
+        <div className=" relative min-w-52  md:min-w-80">
           <input
             placeholder="Search game"
-            className=" py-2 px-2 rounded-md  text-black  min-w-full bg-[hsla(0,0%,100%,.16)] transition-all hover:bg-white focus:bg-white wi"
+            className=" py-2 px-2 rounded-md  text-black  min-w-full bg-[hsla(0,0%,100%,.16)] transition-all hover:bg-white focus:bg-white "
           />
           <svg
             className=" absolute top-0 w-7 right-1 cursor-pointer"
@@ -26,7 +55,10 @@ function Header() {
           </svg>
         </div>
 
-        <div className=" relative">
+        <div
+          className=" relative z-40 cursor-pointer "
+          onClick={handleOpenCart}
+        >
           {displayCart > 0 && (
             <div className="  absolute top-[-15px] w-[32px] right-0 flex gap-1 justify-center">
               <span>{displayCart}</span>
@@ -42,15 +74,14 @@ function Header() {
             height="36"
             fill="#FFF"
             viewBox="0 0 256 256"
-            className=" cursor-pointer z-50"
+            className="md:max-w-[36px] max-w-7"
           >
             <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"></path>
           </svg>
         </div>
       </header>
-      <aside className=" bg-[hsla(0,0%,100%,.16)] absolute top-0 h-[100vh] w-[375px] ">
-        <h1>Cart</h1>
-      </aside>
+      <CartSideBar openCart={openCart} />
+      <SideBarMenu openSidebar={openSideBar} />
     </React.Fragment>
   );
 }

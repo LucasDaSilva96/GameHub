@@ -24,4 +24,5 @@ body {
   color: #fff;
   padding: 20px;
   position: relative;
+  overflow-x: hidden;
 }
