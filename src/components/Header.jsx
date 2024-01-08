@@ -38,10 +38,10 @@ function Header() {
             <FiMenu onClick={handleOpenSidebar} />
           </IconContext.Provider>
         </aside>
-        <div className=" relative min-w-52  md:min-w-80">
+        <div className=" relative min-w-52  md:min-w-[375px]">
           <input
             placeholder="Search game"
-            className=" py-2 px-2 rounded-md  text-black  min-w-full bg-[hsla(0,0%,100%,.16)] transition-all hover:bg-white focus:bg-white "
+            className=" py-2 px-2 rounded-lg  text-black  min-w-full bg-[hsla(0,0%,100%,.16)] transition-all hover:bg-white focus:bg-white "
           />
           <svg
             className=" absolute top-0 w-7 right-1 cursor-pointer"
