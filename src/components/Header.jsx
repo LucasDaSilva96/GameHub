@@ -25,7 +25,7 @@ function Header() {
           <img
             src="/img/Logo.png"
             alt="Logo"
-            className=" w-32 md:w-28 hidden md:block pt-1"
+            className=" w-32 md:w-28 hidden md:block pt-1 drop-shadow-2xl"
           />
 
           <IconContext.Provider

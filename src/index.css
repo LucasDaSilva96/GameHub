@@ -13,11 +13,21 @@
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0;
   list-style: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
 html {
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {

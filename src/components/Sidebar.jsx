@@ -1,10 +1,18 @@
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Sidebar() {
+  const [showAllPlatforms, setShowAllPlatforms] = useState(true);
+  // const API_KEY = useLoaderData();
+
+  function handleShowAllPlatforms() {
+    setShowAllPlatforms((e) => !e);
+  }
   return (
-    <aside className=" min-h-[100vh] min-w-[275px] flex flex-col text-2xl gap-4">
-      <NavLink className="font-black">Home</NavLink>
-      <NavLink className="font-black">Reviews</NavLink>
+    <aside className=" max-h-[85vh] min-w-[275px] flex flex-col text-2xl gap-4 overflow-y-auto overflow-x-hidden pb-4">
+      <NavLink className="font-black transition-all hover:underline">
+        Home
+      </NavLink>
       <div>
         <h1 className="py-3 font-black">New Releases</h1>
         <ul className="flex flex-col gap-3">
@@ -64,6 +72,232 @@ function Sidebar() {
             </NavLink>
           </li>
         </ul>
+      </div>
+
+      <div>
+        <h1 className="py-3 font-black">Top</h1>
+        <ul className="flex flex-col gap-3">
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 22"
+              >
+                <path
+                  d="M12.104 14.338c0-.2-.173-.324-.384-.273 0 0-.99.236-1.72.236s-1.72-.236-1.72-.236c-.21-.05-.384.072-.384.273v1.058c0 .2.179.365.397.365h3.414c.218 0 .397-.165.397-.365v-1.058zM16.033.73c0-.403-.355-.73-.794-.73H4.761c-.439 0-.794.327-.794.73v6.02c0 1.884.61 3.599 1.716 4.829A5.738 5.738 0 0010 13.499c1.67 0 3.202-.682 4.317-1.92 1.107-1.23 1.716-2.945 1.716-4.83V.73zM3.211 8.211C2.125 7.84 1.625 6.978 1.625 5.545V2.286h1.468V.827H.831c-.438 0-.794.327-.794.73v3.988c0 2.434 1.268 3.916 3.6 4.262a8.274 8.274 0 01-.426-1.596zm1.549 8.644c-.438 0-.793.327-.793.73v3.612c0 .402.355.73.794.73H15.24c.438 0 .793-.328.793-.73v-3.612c0-.403-.355-.73-.793-.73H4.76zM19.169.827h-2.262v1.46h1.468v3.258c0 1.433-.5 2.295-1.586 2.666a8.269 8.269 0 01-.426 1.596c2.332-.346 3.6-1.828 3.6-4.262V1.557c0-.403-.356-.73-.794-.73z"
+                  fill="#FFF"
+                ></path>
+              </svg>
+              <span>Best of the year</span>
+            </NavLink>
+          </li>
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg"
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="#fff"
+                viewBox="0 0 256 256"
+              >
+                <path d="M224,216a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,216Zm-88-40V80a16,16,0,0,1,16-16h40a16,16,0,0,1,16,16v96a16,16,0,0,1-16,16H152A16,16,0,0,1,136,176Zm16,0h40V80H152ZM48,176V40A16,16,0,0,1,64,24h40a16,16,0,0,1,16,16V176a16,16,0,0,1-16,16H64A16,16,0,0,1,48,176Zm16,0h40V40H64Z"></path>
+              </svg>
+              <span>Popular in 2023</span>
+            </NavLink>
+          </li>{" "}
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 25 16"
+              >
+                <path
+                  fill="#FFF"
+                  d="M23.91 5.03a.636.636 0 01-.019.198l-1.535 5.867a.693.693 0 01-.673.505l-9.212.044H3.256c-.32 0-.6-.208-.677-.505L1.044 5.25a.637.637 0 01-.018-.204C.432 4.868 0 4.336 0 3.711c0-.772.657-1.4 1.465-1.4s1.466.628 1.466 1.4c0 .435-.209.824-.535 1.08l1.922 1.851c.486.468 1.16.736 1.85.736.815 0 1.592-.37 2.082-.99l3.159-3.999a1.365 1.365 0 01-.43-.989c0-.772.657-1.4 1.465-1.4.809 0 1.466.628 1.466 1.4 0 .374-.156.714-.407.966l.003.003 3.135 4.01c.49.625 1.27.999 2.088.999.696 0 1.35-.26 1.842-.73l1.935-1.847a1.375 1.375 0 01-.548-1.09c0-.772.657-1.4 1.465-1.4.809 0 1.466.628 1.466 1.4 0 .61-.41 1.127-.98 1.32zm-1.704 8.703c0-.368-.312-.666-.698-.666H3.458c-.385 0-.698.298-.698.666v1.6c0 .369.313.667.698.667h18.05c.386 0 .698-.298.698-.667v-1.6z"
+                ></path>
+              </svg>
+              <span>All time top 250</span>
+            </NavLink>
+          </li>{" "}
+        </ul>
+      </div>
+
+      <NavLink className="font-black pt-4 transition-all hover:underline cursor-pointer">
+        All Games
+      </NavLink>
+
+      <div>
+        <h1 className="py-3 font-black">Browse</h1>
+        <ul className="flex flex-col gap-3">
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg"
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="#fff"
+                viewBox="0 0 256 256"
+              >
+                <path d="M223.82,114.19,56,18.16a16,16,0,0,0-16.12,0A15.68,15.68,0,0,0,32,31.87V224.13a15.68,15.68,0,0,0,7.92,13.67,16,16,0,0,0,16.12,0l167.78-96a15.75,15.75,0,0,0,0-27.62ZM48,212.67V43.33L132.69,128Zm96-73.36,18.92,18.92-88.5,50.66ZM74.4,47.1l88.53,50.67L144,116.69ZM177.31,150l-22-22,22-22,38.43,22Z"></path>
+              </svg>
+              <span>Stores</span>
+            </NavLink>
+          </li>{" "}
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="#fff"
+                viewBox="0 0 256 256"
+              >
+                <path d="M245,110.64A16,16,0,0,0,232,104H216V88a16,16,0,0,0-16-16H130.67L102.94,51.2a16.14,16.14,0,0,0-9.6-3.2H40A16,16,0,0,0,24,64V208h0a8,8,0,0,0,8,8H211.1a8,8,0,0,0,7.59-5.47l28.49-85.47A16.05,16.05,0,0,0,245,110.64ZM93.34,64l27.73,20.8a16.12,16.12,0,0,0,9.6,3.2H200v16H146.43a16,16,0,0,0-8.88,2.69l-20,13.31H69.42a15.94,15.94,0,0,0-14.86,10.06L40,166.46V64Zm112,136H43.82l25.6-64h48.16a16,16,0,0,0,8.88-2.69l20-13.31H232Z"></path>
+              </svg>
+              <span>Your collection</span>
+            </NavLink>
+          </li>{" "}
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="#fff"
+                viewBox="0 0 256 256"
+              >
+                <path d="M112,116a12,12,0,1,1-12-12A12,12,0,0,1,112,116Zm44-12a12,12,0,1,0,12,12A12,12,0,0,0,156,104Zm68,16v96a8,8,0,0,1-13.07,6.19l-24.26-19.85L162.4,222.19a8,8,0,0,1-10.13,0L128,202.34l-24.27,19.85a8,8,0,0,1-10.13,0L69.33,202.34,45.07,222.19A8,8,0,0,1,32,216V120a96,96,0,0,1,192,0Zm-16,0a80,80,0,0,0-160,0v79.12l16.27-13.31a8,8,0,0,1,10.13,0l24.27,19.85,24.26-19.85a8,8,0,0,1,10.14,0l24.26,19.85,24.27-19.85a8,8,0,0,1,10.13,0L208,199.12Z"></path>
+              </svg>
+              <span>Genres</span>
+            </NavLink>
+          </li>{" "}
+        </ul>
+      </div>
+
+      <div>
+        <h1 className="py-3 font-black">Platforms</h1>
+        <ul className="flex flex-col gap-3">
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="#fff"
+                viewBox="0 0 256 256"
+              >
+                <path d="M216,136H136a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,216,224a8,8,0,0,0,8-8V144A8,8,0,0,0,216,136Zm-8,70.41-64-11.63V152h64ZM104,136H40a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,104,136Zm-8,50.05-48-8.73V152H96ZM221.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,128,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,221.13,33.86ZM208,104H144V61.22l64-11.63ZM109.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,32,72v40a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V60.36A8,8,0,0,0,109.13,54.22ZM96,104H48V78.68L96,70Z"></path>
+              </svg>
+              <span>PC</span>
+            </NavLink>
+          </li>{" "}
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                viewBox="0 0 21 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.112 16L8 14.654V0s6.764 1.147 7.695 3.987c.931 2.842-.52 4.682-1.03 4.736-1.42.15-1.96-.748-1.96-.748V3.39l-1.544-.648L11.112 16zM12 14.32V16s7.666-2.338 8.794-3.24c1.128-.9-2.641-3.142-4.666-2.704 0 0-2.152.099-4.102.901-.019.008 0 1.51 0 1.51l4.948-1.095 1.743.73L12 14.32zm-5.024-.773s-.942.476-3.041.452c-2.1-.024-3.959-.595-3.935-1.833C.024 10.928 3.476 9.571 6.952 9v1.738l-3.693.952s-.632.786.217.81A11.934 11.934 0 007 12.046l-.024 1.5z"
+                  fill="#FFF"
+                ></path>
+              </svg>
+              <span>PlayStation 4 & 5</span>
+            </NavLink>
+          </li>{" "}
+          <li className="text-base hover:underline transition-all">
+            <NavLink className="flex gap-2 items-center">
+              <svg
+                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg font-black "
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill="#FFF"
+                  d="M3.564 1.357l-.022.02c.046-.048.11-.1.154-.128C4.948.435 6.396 0 8 0c1.502 0 2.908.415 4.11 1.136.086.052.324.215.446.363C11.4.222 7.993 2.962 7.993 2.962c-1.177-.908-2.26-1.526-3.067-1.746-.674-.185-1.14-.03-1.362.141zm10.305 1.208c-.035-.04-.074-.076-.109-.116-.293-.322-.653-.4-.978-.378-.295.092-1.66.584-3.342 2.172 0 0 1.894 1.841 3.053 3.723 1.159 1.883 1.852 3.362 1.426 5.415A7.969 7.969 0 0016 7.999a7.968 7.968 0 00-2.13-5.434zM10.98 8.77a55.416 55.416 0 00-2.287-2.405 52.84 52.84 0 00-.7-.686l-.848.854c-.614.62-1.411 1.43-1.853 1.902-.787.84-3.043 3.479-3.17 4.958 0 0-.502-1.174.6-3.88.72-1.769 2.893-4.425 3.801-5.29 0 0-.83-.913-1.87-1.544l-.007-.002s-.011-.009-.03-.02c-.5-.3-1.047-.53-1.573-.56a1.391 1.391 0 00-.878.431A8 8 0 0013.92 13.381c0-.002-.169-1.056-1.245-2.57-.253-.354-1.178-1.46-1.696-2.04z"
+                ></path>
+              </svg>
+              <span>Xbox One</span>
+            </NavLink>
+          </li>{" "}
+          {showAllPlatforms && (
+            <React.Fragment>
+              <li className="text-base hover:underline transition-all">
+                <NavLink className="flex gap-2 items-center">
+                  <svg
+                    className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 21 16"
+                  >
+                    <path
+                      fill="#FFF"
+                      fillRule="evenodd"
+                      d="M8 0h5a8 8 0 110 16H8A8 8 0 118 0zm-.135 1.935a6.065 6.065 0 000 12.13h5.12a6.065 6.065 0 000-12.13h-5.12zm-1.33 2.304h2.401l3.199 5.175V4.24h2.346v7.495H12.18L8.864 6.537v5.201H6.53l.005-7.499z"
+                    ></path>
+                  </svg>
+                  <span>Nintendo Switch</span>
+                </NavLink>
+              </li>
+
+              <li className="text-base hover:underline transition-all">
+                <NavLink className="flex gap-2 items-center">
+                  <svg
+                    className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    fill="#fff"
+                    viewBox="0 0 256 256"
+                  >
+                    <path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16Zm8,200a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h96a8,8,0,0,1,8,8ZM168,56a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,56Z"></path>
+                  </svg>
+                  <span>iOS</span>
+                </NavLink>
+              </li>
+            </React.Fragment>
+          )}
+        </ul>
+        <div
+          className="flex gap-2 items-center mt-3 opacity-50 cursor-pointer hover:underline "
+          onClick={handleShowAllPlatforms}
+        >
+          {!showAllPlatforms && (
+            <svg
+              className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg "
+              xmlns="http://www.w3.org/2000/svg"
+              width="36"
+              height="36"
+              fill="#fff"
+              viewBox="0 0 256 256"
+            >
+              <path d="M50.34,117.66a8,8,0,0,1,11.32-11.32L120,164.69V32a8,8,0,0,1,16,0V164.69l58.34-58.35a8,8,0,0,1,11.32,11.32l-72,72a8,8,0,0,1-11.32,0ZM216,208H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+            </svg>
+          )}
+          {showAllPlatforms && (
+            <svg
+              className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg "
+              xmlns="http://www.w3.org/2000/svg"
+              width="36"
+              height="36"
+              fill="#fff"
+              viewBox="0 0 256 256"
+            >
+              <path d="M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z"></path>
+            </svg>
+          )}
+
+          <span className="text-base">
+            {!showAllPlatforms ? "Show all" : "Hide"}
+          </span>
+        </div>
       </div>
     </aside>
   );

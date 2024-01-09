@@ -1,3 +1,5 @@
+import Sidebar from "./Sidebar";
+
 function SideBarMenu({ openSidebar }) {
   return (
     <nav
@@ -5,7 +7,7 @@ function SideBarMenu({ openSidebar }) {
         !openSidebar ? "translate-x-[-200%]" : "translate-x-0"
       } transition-all`}
     >
-      <h1>Sidebar</h1>
+      <Sidebar />
     </nav>
   );
 }
