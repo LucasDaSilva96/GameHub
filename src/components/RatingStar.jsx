@@ -12,7 +12,7 @@ function RatingStar({ rating }) {
 }
 
 function Star() {
-  return <img src="/img/star.png" alt="star" className="max-w-[30px]" />;
+  return <img src="/img/star.png" alt="star" className="max-w-[26px]" />;
 }
 
 export default RatingStar;

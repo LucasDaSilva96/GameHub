@@ -32,7 +32,7 @@ function Header() {
             value={{
               size: "36px",
               className:
-                "block md:hidden cursor-pointer z-50 absolute top-[21px]",
+                "block md:hidden cursor-pointer z-[100] absolute top-[21px]",
             }}
           >
             <FiMenu onClick={handleOpenSidebar} />
@@ -56,7 +56,7 @@ function Header() {
         </div>
 
         <div
-          className=" relative z-40 cursor-pointer "
+          className=" relative z-[150] cursor-pointer "
           onClick={handleOpenCart}
         >
           {displayCart > 0 && (

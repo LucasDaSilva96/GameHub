@@ -125,10 +125,6 @@ function Sidebar() {
         </ul>
       </div>
 
-      <NavLink className="font-black pt-4 transition-all hover:underline cursor-pointer">
-        All Games
-      </NavLink>
-
       <div>
         <h1 className="py-3 font-black">Browse</h1>
         <ul className="flex flex-col gap-3">

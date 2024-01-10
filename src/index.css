@@ -21,6 +21,10 @@
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;

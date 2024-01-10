@@ -1,17 +1,29 @@
+import { Link } from "react-router-dom";
+import Platforms from "./Platforms";
 import RatingStar from "./RatingStar";
 
-function GameCard({ background_image, name, platforms, rating, released }) {
+function GameCard({ data }) {
+  const { background_image, name, rating, released, platforms, id } = data;
+
   return (
-    <article className="bg-[hsla(0,0%,100%,.16)] max-w-[275px] py-2 px-2 relative">
-      <img
-        src={background_image}
-        alt="Image from RAWG video games database api"
-      />
-      <div>
-        <h1>{name}</h1>
-        <RatingStar rating={5} />
-      </div>
-    </article>
+    <Link>
+      <article className="bg-[hsla(0,0%,100%,.16)] max-w-[275px] relative min-h-[275px] flex flex-col rounded-md transition-all ">
+        <img
+          src={background_image}
+          alt="Image from RAWG video games database api"
+          className=""
+        />
+        <h1 className="py-2 px-2 font-black text-lg">{name}</h1>
+        <div className="flex items-center gap-2  px-2">
+          <h2 className="font-black">Released:</h2>
+          <span className="underline">{released}</span>
+        </div>
+        <div className="py-2 px-2 mt-[auto]">
+          <RatingStar rating={5} />
+          <Platforms platforms={platforms} />
+        </div>
+      </article>
+    </Link>
   );
 }
 
