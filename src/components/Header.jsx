@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import CartSideBar from "./CartSideBar";
 import SideBarMenu from "./SideBarMenu";
+import { useSelector } from "react-redux";
+import { getCart } from "../redux/cartSlice";
+import { Link } from "react-router-dom";
 
 function Header() {
-  const [displayCart, setCartNotis] = useState(1);
+  const { cart } = useSelector(getCart);
+  const [displayCart, setCartNotis] = useState(cart.length);
   const [openCart, setOpenCart] = useState(false);
   const [openSideBar, setOpenSideBar] = useState(false);
+
+  useEffect(() => {
+    setCartNotis(cart.length);
+  }, [cart.length]);
 
   function handleOpenCart() {
     setOpenCart((e) => !e);
@@ -22,11 +30,13 @@ function Header() {
     <React.Fragment>
       <header className=" flex items-center justify-between ">
         <aside>
-          <img
-            src="/img/Logo.png"
-            alt="Logo"
-            className=" w-32 md:w-28 hidden md:block pt-1 drop-shadow-2xl"
-          />
+          <Link to="/">
+            <img
+              src="/img/Logo.png"
+              alt="Logo"
+              className=" w-32 md:w-28 hidden md:block pt-1 drop-shadow-2xl"
+            />
+          </Link>
 
           <IconContext.Provider
             value={{
@@ -80,7 +90,7 @@ function Header() {
           </svg>
         </div>
       </header>
-      <CartSideBar openCart={openCart} />
+      <CartSideBar openCart={openCart} cart={cart} />
       <SideBarMenu openSidebar={openSideBar} />
     </React.Fragment>
   );

@@ -1,31 +1,21 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { fetchGameById } from "../api/fetchGames";
 import React, { useState } from "react";
 import Loader from "./Loader";
 import Platforms from "./Platforms";
 import ImageModal from "./ImageModal";
+import AddToCartButton from "./AddToCartButton";
 
 function GameDetail() {
-  const queryClient = useQueryClient();
   const { gameId } = useParams();
 
-  const { data, isError, isLoading, fetchStatus, status } = useQuery({
+  const { data, isError, isLoading, status } = useQuery({
     queryKey: ["gameDetail", { id: gameId }],
     queryFn: async () => {
       return await fetchGameById(gameId);
     },
   });
-
-  // const {
-  //   slug,
-  //   released,
-  //   background_image,
-  //   background_image_additional,
-  //   description,
-  //   genres,
-  //   platforms,
-  // } = data;
 
   return (
     <React.Fragment>
@@ -35,28 +25,21 @@ function GameDetail() {
           Failed to fetch the details about the game
         </h1>
       )}
-      {status === "success" && (
-        <GameDetailComponent
-          background_image={data.background_image}
-          slug={data.slug}
-          description={data.description}
-          platforms={data.platforms}
-          background_image_additional={data.background_image_additional}
-        />
-      )}
+      {status === "success" && <GameDetailComponent data={data} />}
     </React.Fragment>
   );
 }
 
-function GameDetailComponent({
-  slug,
-  released,
-  background_image,
-  background_image_additional,
-  description,
-  genres,
-  platforms,
-}) {
+function GameDetailComponent({ data }) {
+  const {
+    background_image,
+    description,
+    slug,
+    background_image_additional,
+    released,
+    genres,
+    platforms,
+  } = data;
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -71,7 +54,6 @@ function GameDetailComponent({
   }
 
   const formatedDescription = removeHtmlTags(description);
-
   return (
     <React.Fragment>
       <div className=" w-full flex flex-col items-center gap-4">
@@ -88,12 +70,32 @@ function GameDetailComponent({
             </p>
           </div>
           <Platforms platforms={platforms} />
+          <h2>Released: {released}</h2>
+          <div className="flex items-center gap-2">
+            <h3>Genres:</h3>
+            <div className="flex items-center gap-2 flex-wrap">
+              {genres.map((el, i) => {
+                return (
+                  <span key={el.name}>
+                    {i < genres.length - 1 ? `${el.name},` : `${el.name}.`}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
           <img
             src={background_image_additional}
             alt="Image from RAWG"
             className="max-w-[250px] rounded-md cursor-pointer"
             onClick={toggleModal}
           />
+          <div>
+            <h4 className="text-xl">
+              Price:{" "}
+              <span className="text-lg underline text-cyan-500">59.00$</span>
+            </h4>
+          </div>
+          <AddToCartButton data={data} />
         </article>
       </div>
       {modal && (

@@ -5,6 +5,7 @@ import loadApiKey from "./api/loadApiKey";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import GameDetail from "./components/GameDetail";
 import { fetchGameById } from "./api/fetchGames";
+import CheckOut from "./components/CheckOut";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "checkout",
+        element: <CheckOut />,
       },
       {
         path: "gameDetail/:gameId",
