@@ -3,6 +3,7 @@ import fetchGames from "../api/fetchGames";
 
 import GameCard from "./GameCard";
 import React, { useState } from "react";
+import Loader from "./Loader";
 
 function Home() {
   const [visible, setVisible] = useState(false);
@@ -33,6 +34,7 @@ function Home() {
   window.addEventListener("scroll", toggleVisible);
   return (
     <React.Fragment>
+      {isFetching && <Loader />}
       <h1 className="font-black text-3xl py-5">All Games</h1>
       <div className="flex flex-wrap gap-4 pb-[40px] ">
         {status === "success"
@@ -42,7 +44,7 @@ function Home() {
               });
             })
           : null}
-        [{visible && <ScrollToTop />}]
+        {visible && <ScrollToTop />}
       </div>
       <button
         className="bg-[hsla(0,0%,100%,1)] rounded-[50%] py-2 px-2 mb-4 animate-bounce ml-[35vw]"
@@ -67,7 +69,7 @@ function Home() {
   );
 }
 
-function ScrollToTop() {
+export function ScrollToTop() {
   function handleScroll() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }

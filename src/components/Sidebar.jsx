@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Sidebar() {
-  const [showAllPlatforms, setShowAllPlatforms] = useState(true);
+  const [showAllPlatforms, setShowAllPlatforms] = useState(false);
   // const API_KEY = useLoaderData();
 
   function handleShowAllPlatforms() {
@@ -10,7 +10,7 @@ function Sidebar() {
   }
   return (
     <aside className=" max-h-[85vh] min-w-[275px] flex flex-col text-2xl gap-4 overflow-y-auto overflow-x-hidden pb-4">
-      <NavLink className="font-black transition-all hover:underline">
+      <NavLink to="/" className="font-black transition-all hover:underline">
         Home
       </NavLink>
       <div>

@@ -10,7 +10,7 @@ function Layout() {
         <div className=" md:block hidden">
           <Sidebar />
         </div>
-        <main>
+        <main className="w-full">
           <Outlet />
         </main>
       </div>
