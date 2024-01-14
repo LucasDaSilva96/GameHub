@@ -6,9 +6,13 @@ import Loader from "./Loader";
 import Platforms from "./Platforms";
 import ImageModal from "./ImageModal";
 import AddToCartButton from "./AddToCartButton";
+import { useSelector } from "react-redux";
+import { getCart, getCartItem } from "../redux/CartSlice";
 
 function GameDetail() {
   const { gameId } = useParams();
+  const { cart } = useSelector(getCart);
+  const hasAdded = getCartItem(cart, Number(gameId)) ? true : false;
 
   const { data, isError, isLoading, status } = useQuery({
     queryKey: ["gameDetail", { id: gameId }],
@@ -25,12 +29,14 @@ function GameDetail() {
           Failed to fetch the details about the game
         </h1>
       )}
-      {status === "success" && <GameDetailComponent data={data} />}
+      {status === "success" && (
+        <GameDetailComponent data={data} hasAdded={hasAdded} />
+      )}
     </React.Fragment>
   );
 }
 
-function GameDetailComponent({ data }) {
+function GameDetailComponent({ data, hasAdded }) {
   const {
     background_image,
     description,
@@ -95,7 +101,7 @@ function GameDetailComponent({ data }) {
               <span className="text-lg underline text-cyan-500">59.00$</span>
             </h4>
           </div>
-          <AddToCartButton data={data} />
+          <AddToCartButton data={data} hasAdded={hasAdded} />
         </article>
       </div>
       {modal && (

@@ -7,10 +7,10 @@ function Layout() {
     <div>
       <Header />
       <div className="flex mt-[40px]">
-        <div className=" md:block hidden">
+        <div className=" md:block hidden mt-4">
           <Sidebar />
         </div>
-        <main className="w-full">
+        <main className="w-full mt-4">
           <Outlet />
         </main>
       </div>

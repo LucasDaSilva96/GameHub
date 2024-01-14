@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ handleCloseAll }) {
   const [showAllPlatforms, setShowAllPlatforms] = useState(false);
   // const API_KEY = useLoaderData();
 
@@ -10,14 +10,21 @@ function Sidebar() {
   }
   return (
     <aside className=" max-h-[85vh] min-w-[275px] flex flex-col text-2xl gap-4 overflow-y-auto overflow-x-hidden pb-4">
-      <NavLink to="/" className="font-black transition-all hover:underline">
+      <NavLink
+        to="/"
+        onClick={handleCloseAll}
+        className="font-black transition-all hover:underline"
+      >
         Home
       </NavLink>
       <div>
         <h1 className="py-3 font-black">New Releases</h1>
         <ul className="flex flex-col gap-3">
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +39,10 @@ function Sidebar() {
             </NavLink>
           </li>
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +57,10 @@ function Sidebar() {
             </NavLink>
           </li>{" "}
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +75,10 @@ function Sidebar() {
             </NavLink>
           </li>{" "}
           <li className="text-base transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <p className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg font-black ">
                 31
               </p>
@@ -78,7 +94,10 @@ function Sidebar() {
         <h1 className="py-3 font-black">Top</h1>
         <ul className="flex flex-col gap-3">
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +112,10 @@ function Sidebar() {
             </NavLink>
           </li>
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +130,10 @@ function Sidebar() {
             </NavLink>
           </li>{" "}
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +153,10 @@ function Sidebar() {
       <div>
         <h1 className="py-3 font-black">Browse</h1>
         <ul className="flex flex-col gap-3">
-          <li className="text-base hover:underline transition-all">
+          <li
+            className="text-base hover:underline transition-all"
+            onClick={handleCloseAll}
+          >
             <NavLink className="flex gap-2 items-center">
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg"
@@ -144,7 +172,10 @@ function Sidebar() {
             </NavLink>
           </li>{" "}
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +190,10 @@ function Sidebar() {
             </NavLink>
           </li>{" "}
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +214,10 @@ function Sidebar() {
         <h1 className="py-3 font-black">Platforms</h1>
         <ul className="flex flex-col gap-3">
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +232,10 @@ function Sidebar() {
             </NavLink>
           </li>{" "}
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 viewBox="0 0 21 16"
@@ -210,7 +250,10 @@ function Sidebar() {
             </NavLink>
           </li>{" "}
           <li className="text-base hover:underline transition-all">
-            <NavLink className="flex gap-2 items-center">
+            <NavLink
+              className="flex gap-2 items-center"
+              onClick={handleCloseAll}
+            >
               <svg
                 className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
@@ -227,7 +270,10 @@ function Sidebar() {
           {showAllPlatforms && (
             <React.Fragment>
               <li className="text-base hover:underline transition-all">
-                <NavLink className="flex gap-2 items-center">
+                <NavLink
+                  className="flex gap-2 items-center"
+                  onClick={handleCloseAll}
+                >
                   <svg
                     className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                     xmlns="http://www.w3.org/2000/svg"
@@ -244,7 +290,10 @@ function Sidebar() {
               </li>
 
               <li className="text-base hover:underline transition-all">
-                <NavLink className="flex gap-2 items-center">
+                <NavLink
+                  className="flex gap-2 items-center"
+                  onClick={handleCloseAll}
+                >
                   <svg
                     className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                     xmlns="http://www.w3.org/2000/svg"

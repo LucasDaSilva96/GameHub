@@ -26,11 +26,16 @@ function Header() {
     setOpenSideBar((e) => !e);
     setOpenCart(false);
   }
+
+  function handleCloseAll() {
+    setOpenSideBar(false);
+    setOpenCart(false);
+  }
   return (
     <React.Fragment>
-      <header className=" flex items-center justify-between ">
+      <header className=" flex items-center pt-[25px] pb-4 px-4 justify-between bg-[#151515] z-[300] fixed top-0 left-0 w-[100%] ">
         <aside>
-          <Link to="/">
+          <Link to="/" onClick={handleCloseAll}>
             <img
               src="/img/Logo.png"
               alt="Logo"
@@ -66,7 +71,7 @@ function Header() {
         </div>
 
         <div
-          className=" relative z-[150] cursor-pointer "
+          className=" relative z-[150] cursor-pointer"
           onClick={handleOpenCart}
         >
           {displayCart > 0 && (
@@ -90,8 +95,12 @@ function Header() {
           </svg>
         </div>
       </header>
-      <CartSideBar openCart={openCart} cart={cart} />
-      <SideBarMenu openSidebar={openSideBar} />
+      <CartSideBar
+        openCart={openCart}
+        cart={cart}
+        handleCloseAll={handleCloseAll}
+      />
+      <SideBarMenu openSidebar={openSideBar} handleCloseAll={handleCloseAll} />
     </React.Fragment>
   );
 }

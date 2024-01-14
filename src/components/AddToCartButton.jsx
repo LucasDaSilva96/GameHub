@@ -1,10 +1,8 @@
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/cartSlice";
-import { useState } from "react";
 
-function AddToCartButton({ data }) {
+function AddToCartButton({ data, hasAdded }) {
   const dispatch = useDispatch();
-  const [hasAdded, setHasAdded] = useState(false);
   return (
     <button
       className={`py-2 px-4 ${
@@ -14,7 +12,6 @@ function AddToCartButton({ data }) {
       } capitalize`}
       disabled={hasAdded}
       onClick={() => {
-        setHasAdded(true);
         return dispatch(addItem({ ...data, quantity: 1, price: 59 }));
       }}
     >
