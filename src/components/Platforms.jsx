@@ -44,7 +44,7 @@ function Platforms({ platforms }) {
 function Pc() {
   return (
     <svg
-      className="max-w-6 "
+      className="max-w-6 min-w-3 "
       xmlns="http://www.w3.org/2000/svg"
       width="36"
       height="36"
@@ -59,7 +59,7 @@ function Pc() {
 function PlayStation() {
   return (
     <svg
-      className="max-w-6 "
+      className="max-w-6 min-w-3 "
       viewBox="0 0 21 16"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -74,7 +74,7 @@ function PlayStation() {
 function Xbox() {
   return (
     <svg
-      className="max-w-6 "
+      className="max-w-6 min-w-3 "
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 16 16"
     >
@@ -89,7 +89,7 @@ function Xbox() {
 function Nintendo() {
   return (
     <svg
-      className="max-w-6 "
+      className="max-w-6 min-w-3 "
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 21 16"
     >
@@ -105,7 +105,7 @@ function Nintendo() {
 function Phone() {
   return (
     <svg
-      className="max-w-6 "
+      className="max-w-6 min-w-4 "
       xmlns="http://www.w3.org/2000/svg"
       width="36"
       height="36"
