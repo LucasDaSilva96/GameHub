@@ -1,12 +1,12 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import fetchGames from "../api/fetchGames";
-
-import GameCard from "./GameCard";
+import { fetchPopularGamesLastYear } from "../api/fetchGames";
 import React, { useState } from "react";
-import Loader from "./Loader";
 import ErrorElement from "./ErrorElement";
+import Loader from "./Loader";
+import GameCard from "./GameCard";
+import { ScrollToTop } from "./Home";
 
-function Home() {
+function PopularGames() {
   const [visible, setVisible] = useState(false);
 
   const toggleVisible = () => {
@@ -27,8 +27,8 @@ function Home() {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["AllGames"],
-    queryFn: fetchGames,
+    queryKey: ["PopularGamesLastYear"],
+    queryFn: fetchPopularGamesLastYear,
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
   });
@@ -37,7 +37,9 @@ function Home() {
   return (
     <React.Fragment>
       {isFetching && <Loader />}
-      <h1 className="font-black text-3xl py-5">All Games</h1>
+      <h1 className="font-black text-3xl py-5">
+        Popular in {new Date().getFullYear() - 1}
+      </h1>
       <div className="flex flex-wrap gap-4 pb-[40px] ">
         {status === "success"
           ? data.pages.map((page) => {
@@ -48,14 +50,14 @@ function Home() {
           : null}
         {visible && <ScrollToTop />}
       </div>
-      <button
-        className="bg-[hsla(0,0%,100%,1)] rounded-[50%] py-2 px-2 mb-4 animate-bounce ml-[35vw]"
-        onClick={() => {
-          fetchNextPage();
-        }}
-        disabled={!hasNextPage || isFetchingNextPage}
-      >
-        {hasNextPage && (
+      {hasNextPage && (
+        <button
+          className="bg-[hsla(0,0%,100%,1)] rounded-[50%] py-2 px-2 mb-4 animate-bounce ml-[35vw]"
+          onClick={() => {
+            fetchNextPage();
+          }}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -65,32 +67,10 @@ function Home() {
           >
             <path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
           </svg>
-        )}
-      </button>
+        </button>
+      )}
     </React.Fragment>
   );
 }
 
-export function ScrollToTop() {
-  function handleScroll() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-  return (
-    <div
-      onClick={handleScroll}
-      className="bg-[hsla(0,0%,100%,1)] rounded-[50%] py-1 px-1 fixed z-50 bottom-4 right-2 cursor-pointer"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="#000000"
-        viewBox="0 0 256 256"
-      >
-        <path d="M205.66,138.34a8,8,0,0,1-11.32,11.32L136,91.31V224a8,8,0,0,1-16,0V91.31L61.66,149.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0ZM216,32H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
-      </svg>
-    </div>
-  );
-}
-
-export default Home;
+export default PopularGames;

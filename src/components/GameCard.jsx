@@ -9,10 +9,13 @@ function GameCard({ data }) {
     <Link to={`/gameDetail/${id}`}>
       <article className="bg-[hsla(0,0%,100%,.16)] max-w-[275px] relative min-h-[275px] flex flex-col rounded-md transition-all shadow-lg hover:shadow-cyan-500/50 hover:translate-y-[-2px] ">
         <img
-          src={background_image}
+          src={
+            background_image
+              ? background_image
+              : "/icon/No-Image-Placeholder.svg"
+          }
           alt="Image from RAWG video games database api"
           loading="lazy"
-          className=""
         />
         <h1 className="py-2 px-2 font-black text-lg">{name}</h1>
         <div className="flex items-center gap-2  px-2">

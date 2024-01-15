@@ -35,7 +35,13 @@ function CheckOutBox({ data }) {
 
   return (
     <article className="bg-[#303336] rounded-lg max-w-[300px] flex flex-col gap-2 items-center pb-2">
-      <img src={background_image} alt="Image from RAWG" className=" w-full " />
+      <img
+        src={
+          background_image ? background_image : "/icon/No-Image-Placeholder.svg"
+        }
+        alt="Image from RAWG"
+        className=" w-full "
+      />
       <div className="py-2 px-2 flex flex-col items-center ">
         <h1 className="font-black capitalize text-xl text-center">{slug}</h1>
 
@@ -223,7 +229,7 @@ function BillingComponent({ cart }) {
           className="py-2 px-8 bg-black rounded-md mt-[auto]"
           onClick={() => navigate("/")}
         >
-          Go to shop
+          Go to all games
         </button>
       )}
     </div>

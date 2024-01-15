@@ -33,7 +33,7 @@ function Header() {
   }
   return (
     <React.Fragment>
-      <header className=" flex items-center pt-[25px] pb-4 px-4 justify-between bg-[#151515] z-[300] fixed top-0 left-0 w-[100%] ">
+      <header className=" flex items-center pt-[2px] pb-2 px-4 justify-between bg-[#151515] z-[300] fixed top-0 left-0 w-[100%] ">
         <aside>
           <Link to="/" onClick={handleCloseAll}>
             <img

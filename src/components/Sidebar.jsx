@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar({ handleCloseAll }) {
   const [showAllPlatforms, setShowAllPlatforms] = useState(false);
-  // const API_KEY = useLoaderData();
 
   function handleShowAllPlatforms() {
     setShowAllPlatforms((e) => !e);
@@ -99,6 +98,7 @@ function Sidebar({ handleCloseAll }) {
         <ul className="flex flex-col gap-3">
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="bestOfTheYear"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
@@ -117,6 +117,7 @@ function Sidebar({ handleCloseAll }) {
           </li>
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="popularLastYear"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
@@ -130,11 +131,12 @@ function Sidebar({ handleCloseAll }) {
               >
                 <path d="M224,216a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,216Zm-88-40V80a16,16,0,0,1,16-16h40a16,16,0,0,1,16,16v96a16,16,0,0,1-16,16H152A16,16,0,0,1,136,176Zm16,0h40V80H152ZM48,176V40A16,16,0,0,1,64,24h40a16,16,0,0,1,16,16V176a16,16,0,0,1-16,16H64A16,16,0,0,1,48,176Zm16,0h40V40H64Z"></path>
               </svg>
-              <span>Popular in 2023</span>
+              <span>Popular in {new Date().getFullYear() - 1}</span>
             </NavLink>
           </li>{" "}
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="allTimeTop"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
@@ -148,7 +150,7 @@ function Sidebar({ handleCloseAll }) {
                   d="M23.91 5.03a.636.636 0 01-.019.198l-1.535 5.867a.693.693 0 01-.673.505l-9.212.044H3.256c-.32 0-.6-.208-.677-.505L1.044 5.25a.637.637 0 01-.018-.204C.432 4.868 0 4.336 0 3.711c0-.772.657-1.4 1.465-1.4s1.466.628 1.466 1.4c0 .435-.209.824-.535 1.08l1.922 1.851c.486.468 1.16.736 1.85.736.815 0 1.592-.37 2.082-.99l3.159-3.999a1.365 1.365 0 01-.43-.989c0-.772.657-1.4 1.465-1.4.809 0 1.466.628 1.466 1.4 0 .374-.156.714-.407.966l.003.003 3.135 4.01c.49.625 1.27.999 2.088.999.696 0 1.35-.26 1.842-.73l1.935-1.847a1.375 1.375 0 01-.548-1.09c0-.772.657-1.4 1.465-1.4.809 0 1.466.628 1.466 1.4 0 .61-.41 1.127-.98 1.32zm-1.704 8.703c0-.368-.312-.666-.698-.666H3.458c-.385 0-.698.298-.698.666v1.6c0 .369.313.667.698.667h18.05c.386 0 .698-.298.698-.667v-1.6z"
                 ></path>
               </svg>
-              <span>All time top 250</span>
+              <span>All time top</span>
             </NavLink>
           </li>{" "}
         </ul>
@@ -157,24 +159,6 @@ function Sidebar({ handleCloseAll }) {
       <div>
         <h1 className="py-3 font-black">Browse</h1>
         <ul className="flex flex-col gap-3">
-          <li
-            className="text-base hover:underline transition-all"
-            onClick={handleCloseAll}
-          >
-            <NavLink className="flex gap-2 items-center">
-              <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg"
-                xmlns="http://www.w3.org/2000/svg"
-                width="36"
-                height="36"
-                fill="#fff"
-                viewBox="0 0 256 256"
-              >
-                <path d="M223.82,114.19,56,18.16a16,16,0,0,0-16.12,0A15.68,15.68,0,0,0,32,31.87V224.13a15.68,15.68,0,0,0,7.92,13.67,16,16,0,0,0,16.12,0l167.78-96a15.75,15.75,0,0,0,0-27.62ZM48,212.67V43.33L132.69,128Zm96-73.36,18.92,18.92-88.5,50.66ZM74.4,47.1l88.53,50.67L144,116.69ZM177.31,150l-22-22,22-22,38.43,22Z"></path>
-              </svg>
-              <span>Stores</span>
-            </NavLink>
-          </li>{" "}
           <li className="text-base hover:underline transition-all">
             <NavLink
               className="flex gap-2 items-center"

@@ -62,7 +62,11 @@ function CartItem({ item }) {
     <article className="flex gap-2 bg-[#303336] rounded-md items-center justify-center px-1">
       <div>
         <img
-          src={item.background_image}
+          src={
+            item.background_image
+              ? item.background_image
+              : "/icon/No-Image-Placeholder.svg"
+          }
           alt="Image from RAWG"
           className="max-w-[150px] rounded-md"
         />

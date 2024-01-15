@@ -8,6 +8,8 @@ import ImageModal from "./ImageModal";
 import AddToCartButton from "./AddToCartButton";
 import { useSelector } from "react-redux";
 import { getCart, getCartItem } from "../redux/CartSlice";
+import AddToCollectionBtn from "./AddToCollectionBtn";
+import GoBackBtn from "./GoBackBtn";
 
 function GameDetail() {
   const { gameId } = useParams();
@@ -64,11 +66,18 @@ function GameDetailComponent({ data, hasAdded }) {
     <React.Fragment>
       <div className=" w-full flex flex-col items-center gap-4">
         <h2 className="font-black text-3xl text-center  capitalize">{slug}</h2>
-        <img
-          src={background_image}
-          alt="Image from RAWG"
-          className=" w-full max-w-[600px] rounded-lg"
-        />
+        <div className="relative">
+          <img
+            src={
+              background_image
+                ? background_image
+                : "/icon/No-Image-Placeholder.svg"
+            }
+            alt="Image from RAWG"
+            className=" w-full max-w-[600px] rounded-lg"
+          />
+          <GoBackBtn />
+        </div>
         <article className="max-w-[600px] bg-[#282b2e9f] py-1 px-1 rounded-md flex flex-col gap-2">
           <div className="max-h-[200px] overflow-y-scroll">
             <p className="w-[100%] tracking-wide leading-normal">
@@ -89,12 +98,15 @@ function GameDetailComponent({ data, hasAdded }) {
               })}
             </div>
           </div>
-          <img
-            src={background_image_additional}
-            alt="Image from RAWG"
-            className="max-w-[250px] rounded-md cursor-pointer"
-            onClick={toggleModal}
-          />
+          <AddToCollectionBtn data={data} />
+          {background_image_additional && (
+            <img
+              src={background_image_additional}
+              alt="Image from RAWG"
+              className="max-w-[250px] rounded-md cursor-pointer"
+              onClick={toggleModal}
+            />
+          )}
           <div>
             <h4 className="text-xl">
               Price:{" "}
@@ -104,7 +116,7 @@ function GameDetailComponent({ data, hasAdded }) {
           <AddToCartButton data={data} hasAdded={hasAdded} />
         </article>
       </div>
-      {modal && (
+      {modal && background_image_additional && (
         <ImageModal
           image_url={background_image_additional}
           toggleModal={toggleModal}

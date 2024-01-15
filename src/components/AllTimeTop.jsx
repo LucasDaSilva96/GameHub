@@ -1,12 +1,12 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import fetchGames from "../api/fetchGames";
-
-import GameCard from "./GameCard";
 import React, { useState } from "react";
-import Loader from "./Loader";
+import { fetchTopGames } from "../api/fetchGames";
 import ErrorElement from "./ErrorElement";
+import Loader from "./Loader";
+import GameCard from "./GameCard";
+import { ScrollToTop } from "./Home";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
-function Home() {
+function AllTimeTop() {
   const [visible, setVisible] = useState(false);
 
   const toggleVisible = () => {
@@ -17,7 +17,6 @@ function Home() {
       setVisible(false);
     }
   };
-
   const {
     data,
     error,
@@ -27,8 +26,8 @@ function Home() {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["AllGames"],
-    queryFn: fetchGames,
+    queryKey: ["AllTimeTop"],
+    queryFn: fetchTopGames,
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
   });
@@ -37,7 +36,7 @@ function Home() {
   return (
     <React.Fragment>
       {isFetching && <Loader />}
-      <h1 className="font-black text-3xl py-5">All Games</h1>
+      <h1 className="font-black text-3xl py-5">All time top</h1>
       <div className="flex flex-wrap gap-4 pb-[40px] ">
         {status === "success"
           ? data.pages.map((page) => {
@@ -71,26 +70,4 @@ function Home() {
   );
 }
 
-export function ScrollToTop() {
-  function handleScroll() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-  return (
-    <div
-      onClick={handleScroll}
-      className="bg-[hsla(0,0%,100%,1)] rounded-[50%] py-1 px-1 fixed z-50 bottom-4 right-2 cursor-pointer"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="#000000"
-        viewBox="0 0 256 256"
-      >
-        <path d="M205.66,138.34a8,8,0,0,1-11.32,11.32L136,91.31V224a8,8,0,0,1-16,0V91.31L61.66,149.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0ZM216,32H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
-      </svg>
-    </div>
-  );
-}
-
-export default Home;
+export default AllTimeTop;
