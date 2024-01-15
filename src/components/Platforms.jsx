@@ -3,42 +3,43 @@ function Platforms({ platforms }) {
     return data.filter((value, index) => data.indexOf(value) === index);
   }
 
-  const platArray = platforms
-    ? platforms
-        ?.map((el) => {
-          // console.log(el);
-          return el.platform;
-        })
-        .map((el) => {
-          return el.name.split(" ")[0];
-        })
-    : platforms;
+  if (platforms) {
+    const platArray = platforms
+      ? platforms
+          ?.map((el) => {
+            return el.platform;
+          })
+          .map((el) => {
+            return el.name.split(" ")[0];
+          })
+      : platforms;
 
-  const uniquePlatArray =
-    platArray?.length > 0 ? removeDuplicate(platArray) : platArray;
+    const uniquePlatArray =
+      platArray?.length > 0 ? removeDuplicate(platArray) : platArray;
 
-  return (
-    <div className="flex items-center gap-1 ">
-      {uniquePlatArray.map((el) => {
-        if (el === "PC") {
-          return <Pc key={el} />;
-        }
-        if (el === "PlayStation") {
-          return <PlayStation key={el} />;
-        }
-        if (el === "Xbox") {
-          return <Xbox key={el} />;
-        }
+    return (
+      <div className="flex items-center gap-1 ">
+        {uniquePlatArray.map((el) => {
+          if (el === "PC") {
+            return <Pc key={el} />;
+          }
+          if (el === "PlayStation") {
+            return <PlayStation key={el} />;
+          }
+          if (el === "Xbox") {
+            return <Xbox key={el} />;
+          }
 
-        if (el === "Nintendo") {
-          return <Nintendo key={el} />;
-        }
-        if (el === "Android") {
-          return <Phone key={el} />;
-        }
-      })}
-    </div>
-  );
+          if (el === "Nintendo") {
+            return <Nintendo key={el} />;
+          }
+          if (el === "Android") {
+            return <Phone key={el} />;
+          }
+        })}
+      </div>
+    );
+  }
 }
 
 function Pc() {

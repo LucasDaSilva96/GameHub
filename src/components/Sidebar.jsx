@@ -15,13 +15,14 @@ function Sidebar({ handleCloseAll }) {
         onClick={handleCloseAll}
         className="font-black transition-all hover:underline"
       >
-        Home
+        All Games
       </NavLink>
       <div>
         <h1 className="py-3 font-black">New Releases</h1>
         <ul className="flex flex-col gap-3">
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="priorGames"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
@@ -40,6 +41,7 @@ function Sidebar({ handleCloseAll }) {
           </li>
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="thisWeek"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
@@ -58,6 +60,7 @@ function Sidebar({ handleCloseAll }) {
           </li>{" "}
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="nextWeek"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
@@ -76,6 +79,7 @@ function Sidebar({ handleCloseAll }) {
           </li>{" "}
           <li className="text-base transition-all">
             <NavLink
+              to="releaseCalender"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
