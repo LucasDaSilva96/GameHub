@@ -158,4 +158,18 @@ export async function fetchTopGames({ pageParam }) {
   }
 }
 
+export async function fetchGamesByGenre(genreId, page) {
+  try {
+    const KEY = await loadApiKey();
+    const res = await fetch(
+      `https://api.rawg.io/api/games?genres=${genreId}&ordering=-added&key=${KEY}&page=` +
+        page
+    );
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}
+
 export default fetchGames;

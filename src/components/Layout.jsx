@@ -6,7 +6,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <div className="flex mt-[40px]">
+      <div className="flex mt-[60px] md:mt-[70px]">
         <div className=" md:block hidden mt-4">
           <Sidebar />
         </div>

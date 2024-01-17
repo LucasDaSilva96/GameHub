@@ -16,6 +16,9 @@ import PageNotFound from "./components/PageNotFound";
 import PopularGames from "./components/PopularGames";
 import AllTimeTop from "./components/AllTimeTop";
 import { setLocalStorage } from "./helpers/localStorage";
+import Collection from "./components/Collection";
+import Genres from "./components/Genres";
+import GenresGames from "./components/GenresGames";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +73,19 @@ const router = createBrowserRouter([
         path: "allTimeTop",
         element: <AllTimeTop />,
       },
+      {
+        path: "collection",
+        element: <Collection />,
+      },
+      {
+        path: "genres",
+        element: <Genres />,
+      },
+      {
+        path: "genres/:genresType",
+        element: <GenresGames />,
+      },
+
       {
         path: "*",
         element: <PageNotFound />,

@@ -33,21 +33,20 @@ function Header() {
   }
   return (
     <React.Fragment>
-      <header className=" flex items-center pt-[2px] pb-2 px-4 justify-between bg-[#151515] z-[300] fixed top-0 left-0 w-[100%] ">
+      <header className=" flex items-center pt-4 md:pt-[2px]  pb-4 lg:pb-2 px-4 justify-between bg-[#151515] z-[300] fixed top-0 left-0 w-[100%] ">
         <aside>
           <Link to="/" onClick={handleCloseAll}>
             <img
               src="/img/Logo.png"
               alt="Logo"
-              className=" w-32 md:w-28 hidden md:block pt-1 drop-shadow-2xl"
+              className=" w-32 md:w-28 hidden md:block pt-1"
             />
           </Link>
 
           <IconContext.Provider
             value={{
               size: "36px",
-              className:
-                "block md:hidden cursor-pointer z-[155] absolute top-[21px]",
+              className: "block md:hidden cursor-pointer z-[155] ",
             }}
           >
             <FiMenu onClick={handleOpenSidebar} />

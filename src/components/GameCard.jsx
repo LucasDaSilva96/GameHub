@@ -23,7 +23,7 @@ function GameCard({ data }) {
           <span className="underline">{released}</span>
         </div>
         <div className="py-2 px-2 mt-[auto]">
-          <RatingStar rating={5} />
+          <RatingStar rating={rating} />
           <Platforms platforms={platforms} />
         </div>
       </article>

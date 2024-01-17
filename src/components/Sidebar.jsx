@@ -161,6 +161,7 @@ function Sidebar({ handleCloseAll }) {
         <ul className="flex flex-col gap-3">
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="collection"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
@@ -179,6 +180,7 @@ function Sidebar({ handleCloseAll }) {
           </li>{" "}
           <li className="text-base hover:underline transition-all">
             <NavLink
+              to="genres"
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
