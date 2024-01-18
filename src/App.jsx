@@ -19,6 +19,11 @@ import { setLocalStorage } from "./helpers/localStorage";
 import Collection from "./components/Collection";
 import Genres from "./components/Genres";
 import GenresGames from "./components/GenresGames";
+import PcPlatformGames from "./components/PcPlatformGames";
+import PlaystationPlatformGames from "./components/PlaystationPlatformGames";
+import XboxPlatformGames from "./components/XboxPlatformGames";
+import NintendoPlatformGames from "./components/NintendoPlatformGames";
+import PhonePlatformGames from "./components/PhonePlatformGames";
 
 const queryClient = new QueryClient();
 
@@ -85,7 +90,26 @@ const router = createBrowserRouter([
         path: "genres/:genresType",
         element: <GenresGames />,
       },
-
+      {
+        path: "pcPlatform/:platType",
+        element: <PcPlatformGames />,
+      },
+      {
+        path: "psPlatform/:platType",
+        element: <PlaystationPlatformGames />,
+      },
+      {
+        path: "xboxPlatform/:platType",
+        element: <XboxPlatformGames />,
+      },
+      {
+        path: "nintendoPlatform/:platType",
+        element: <NintendoPlatformGames />,
+      },
+      {
+        path: "phonePlatform/:platType",
+        element: <PhonePlatformGames />,
+      },
       {
         path: "*",
         element: <PageNotFound />,

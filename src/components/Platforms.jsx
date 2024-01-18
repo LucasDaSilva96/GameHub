@@ -1,8 +1,6 @@
-function Platforms({ platforms }) {
-  function removeDuplicate(data) {
-    return data.filter((value, index) => data.indexOf(value) === index);
-  }
+import { removeDuplicate } from "../helpers/filter";
 
+function Platforms({ platforms }) {
   if (platforms) {
     const platArray = platforms
       ? platforms
@@ -33,7 +31,7 @@ function Platforms({ platforms }) {
           if (el === "Nintendo") {
             return <Nintendo key={el} />;
           }
-          if (el === "Android") {
+          if (el === "Android" || el === "iOs") {
             return <Phone key={el} />;
           }
         })}

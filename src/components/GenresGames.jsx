@@ -35,7 +35,6 @@ function GenresGames() {
   if (isFetching) return <Loader />;
   window.addEventListener("scroll", toggleVisible);
   if (error) return <ErrorElement />;
-  console.log(data);
   return (
     <React.Fragment>
       {isFetching && <Loader />}

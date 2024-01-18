@@ -172,4 +172,23 @@ export async function fetchGamesByGenre(genreId, page) {
   }
 }
 
+// PC - ID = 4,5,6
+// Playstation - ID = 187, 18, 16, 2
+// Xbox - ID = 1, 186, 14,
+// Nintendo - ID = 7, 8
+// Phone - ID = 21, 3
+export async function fetchGamesByPlatform(platformId, page) {
+  try {
+    const KEY = await loadApiKey();
+    const res = await fetch(
+      `https://api.rawg.io/api/games?platforms=${platformId}&ordering=-added&key=${KEY}&page=` +
+        page
+    );
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}
+
 export default fetchGames;
