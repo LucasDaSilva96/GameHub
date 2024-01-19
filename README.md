@@ -2,9 +2,9 @@
 
 This React-based E-Shop for games, created as part of an assignment from The Odin Project, seamlessly integrates several key features to deliver an immersive gaming experience. The project showcases a combination of React Router DOM, React Query/Tanstack, and the RAWG API to provide users with a dynamic and engaging platform.
 
-![Preview image 1](/img/preview-1.png)
-![Preview image 2](/img/preview-2.png)
-![Preview image 3](/img/preview-3.png)
+![Preview image 1](/public/img/preview-1.png)
+![Preview image 2](/public/img/preview-2.png)
+![Preview image 3](/public/img/preview-3.png)
 
 ## Key Features:
 
@@ -30,4 +30,4 @@ This React-based E-Shop for games, created as part of an assignment from The Odi
 
 - Leveraging the RAWG API enriches the platform with a vast array of game data. This integration enables users to access an extensive catalog of games, enhancing their exploration and search capabilities.
 
-###### this React GameHub E-Shop project not only provides a visually appealing interface for browsing and collecting games but also showcases the power of React Router DOM, React Query/Tanstack, and the RAWG API in creating a feature-rich and interactive gaming platform. Whether managing a personal collection, exploring new releases, or simulating the process of making a purchase, users can enjoy a comprehensive and immersive online gaming experience.
+##### this React GameHub E-Shop project not only provides a visually appealing interface for browsing and collecting games but also showcases the power of React Router DOM, React Query/Tanstack, and the RAWG API in creating a feature-rich and interactive gaming platform. Whether managing a personal collection, exploring new releases, or simulating the process of making a purchase, users can enjoy a comprehensive and immersive online gaming experience.
