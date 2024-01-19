@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Loader from "./Loader";
 import GameCard from "./GameCard";
 import { ScrollToTop } from "./Home";
+import ErrorElement from "./ErrorElement";
 
 function ThisWeekGames() {
   const { isPending, isError, data, error } = useQuery({
@@ -21,6 +22,8 @@ function ThisWeekGames() {
       setVisible(false);
     }
   };
+
+  if (error) return <ErrorElement />;
 
   if (!isPending && !error && data.results.length < 1)
     return (

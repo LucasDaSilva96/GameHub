@@ -52,7 +52,9 @@ function XboxPlatformGames() {
                     platform.id !== 14
                 )
               )
-              .map((result) => <GameCard data={result} key={result.id} />)
+              .map((result, i) => (
+                <GameCard data={result} key={`Index: ${i}, id: ${result.id}`} />
+              ))
           : null}
 
         {visible && <ScrollToTop />}

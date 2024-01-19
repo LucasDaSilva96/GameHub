@@ -50,7 +50,9 @@ function PcPlatformGames() {
                     platform.id !== 4 || platform.id !== 5 || platform.id !== 6
                 )
               )
-              .map((result) => <GameCard data={result} key={result.id} />)
+              .map((result, i) => (
+                <GameCard data={result} key={`Index: ${i}, id: ${result.id}`} />
+              ))
           : null}
 
         {visible && <ScrollToTop />}

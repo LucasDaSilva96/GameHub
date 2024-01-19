@@ -48,14 +48,14 @@ function Home() {
           : null}
         {visible && <ScrollToTop />}
       </div>
-      <button
-        className="bg-[hsla(0,0%,100%,1)] rounded-[50%] py-2 px-2 mb-4 animate-bounce ml-[35vw]"
-        onClick={() => {
-          fetchNextPage();
-        }}
-        disabled={!hasNextPage || isFetchingNextPage}
-      >
-        {hasNextPage && (
+      {hasNextPage && (
+        <button
+          className="bg-[hsla(0,0%,100%,1)] rounded-[50%] py-2 px-2 mb-4 animate-bounce ml-[35vw]"
+          onClick={() => {
+            fetchNextPage();
+          }}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -65,8 +65,8 @@ function Home() {
           >
             <path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
           </svg>
-        )}
-      </button>
+        </button>
+      )}
     </React.Fragment>
   );
 }

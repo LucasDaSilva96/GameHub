@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import { fetchGamesLast30Days } from "../api/fetchGames";
 import GameCard from "./GameCard";
 import React, { useState } from "react";
+import ErrorElement from "./ErrorElement";
 
 function PriorDateGames() {
   const [visible, setVisible] = useState(false);
@@ -31,6 +32,8 @@ function PriorDateGames() {
     getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
   });
   window.addEventListener("scroll", toggleVisible);
+
+  if (error) return <ErrorElement />;
 
   if (!isFetching && !error && data.pages[0].results.length < 1)
     return (

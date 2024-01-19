@@ -6,12 +6,15 @@ import SideBarMenu from "./SideBarMenu";
 import { useSelector } from "react-redux";
 import { getCart } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 function Header() {
   const { cart } = useSelector(getCart);
   const [displayCart, setCartNotis] = useState(cart.length);
   const [openCart, setOpenCart] = useState(false);
   const [openSideBar, setOpenSideBar] = useState(false);
+  const [openSearchBar, setOpenSearchBar] = useState(false);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     setCartNotis(cart.length);
@@ -20,17 +23,26 @@ function Header() {
   function handleOpenCart() {
     setOpenCart((e) => !e);
     setOpenSideBar(false);
+    setOpenSearchBar(false);
   }
 
   function handleOpenSidebar() {
     setOpenSideBar((e) => !e);
     setOpenCart(false);
+    setOpenSearchBar(false);
   }
 
   function handleCloseAll() {
     setOpenSideBar(false);
     setOpenCart(false);
+    setOpenSearchBar(false);
   }
+
+  window.addEventListener("click", () => {
+    setOpenSearchBar(false);
+    setQuery("");
+  });
+
   return (
     <React.Fragment>
       <header className=" flex items-center pt-4 md:pt-[2px]  pb-4 lg:pb-2 px-4 justify-between bg-[#151515] z-[300] fixed top-0 left-0 w-[100%] ">
@@ -52,22 +64,12 @@ function Header() {
             <FiMenu onClick={handleOpenSidebar} />
           </IconContext.Provider>
         </aside>
-        <div className=" relative min-w-52  md:min-w-[375px]">
-          <input
-            placeholder="Search game"
-            className=" py-2 px-2 rounded-lg  text-black  min-w-full bg-[hsla(0,0%,100%,.16)] transition-all hover:bg-white focus:bg-white "
-          />
-          <svg
-            className=" absolute top-0 w-7 right-1 cursor-pointer"
-            xmlns="http://www.w3.org/2000/svg"
-            width="36"
-            height="36"
-            fill="#000"
-            viewBox="0 0 256 256"
-          >
-            <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
-          </svg>
-        </div>
+        <Searchbar
+          openSearchBar={openSearchBar}
+          setOpenSearchBar={setOpenSearchBar}
+          query={query}
+          setQuery={setQuery}
+        />
 
         <div
           className=" relative z-[150] cursor-pointer"

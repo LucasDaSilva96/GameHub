@@ -172,6 +172,7 @@ export async function fetchGamesByGenre(genreId, page) {
   }
 }
 
+// From the RAWG-API
 // PC - ID = 4,5,6
 // Playstation - ID = 187, 18, 16, 2
 // Xbox - ID = 1, 186, 14,
@@ -186,6 +187,34 @@ export async function fetchGamesByPlatform(platformId, page) {
     );
     const data = await res.json();
     return data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}
+
+export async function fetchGameDetailsByTitle(title) {
+  try {
+    const KEY = await loadApiKey();
+    const res = await fetch(
+      `https://api.rawg.io/api/games?search=${encodeURIComponent(
+        title
+      )}&key=${KEY}`
+    );
+    const data = await res.json();
+
+    // Assuming that the first result in the search is the desired game
+    const gameId = data.results.length > 0 ? data.results[0].id : null;
+
+    if (gameId) {
+      // Fetch detailed information about the specific game using its ID
+      const detailsRes = await fetch(
+        `https://api.rawg.io/api/games/${gameId}?key=${KEY}`
+      );
+      const detailsData = await detailsRes.json();
+      return detailsData;
+    } else {
+      return null;
+    }
   } catch (err) {
     throw new Error(err.message);
   }

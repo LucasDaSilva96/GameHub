@@ -53,7 +53,9 @@ function PlaystationPlatformGames() {
                     platform.id !== 2
                 )
               )
-              .map((result) => <GameCard data={result} key={result.id} />)
+              .map((result, i) => (
+                <GameCard data={result} key={`Index: ${i}, id: ${result.id}`} />
+              ))
           : null}
 
         {visible && <ScrollToTop />}
