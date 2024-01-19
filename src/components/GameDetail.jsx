@@ -7,7 +7,7 @@ import Platforms from "./Platforms";
 import ImageModal from "./ImageModal";
 import AddToCartButton from "./AddToCartButton";
 import { useSelector } from "react-redux";
-import { getCart, getCartItem } from "../redux/CartSlice";
+import { getCart, getCartItem } from "../redux/cartSlice.js";
 import AddToCollectionBtn from "./AddToCollectionBtn";
 import GoBackBtn from "./GoBackBtn";
 

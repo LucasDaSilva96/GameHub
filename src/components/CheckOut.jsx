@@ -6,7 +6,7 @@ import {
   getCart,
   getTotalCartPrice,
   increaseItemQuantity,
-} from "../redux/CartSlice";
+} from "../redux/cartSlice.js";
 import Platforms from "./Platforms";
 import { useNavigate, Form } from "react-router-dom";
 
