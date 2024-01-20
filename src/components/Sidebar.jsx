@@ -26,7 +26,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -45,7 +45,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 19 26"
               >
@@ -64,7 +64,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 16"
               >
@@ -82,7 +82,7 @@ function Sidebar({ handleCloseAll }) {
               className="flex gap-2 items-center"
               onClick={handleCloseAll}
             >
-              <p className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg font-black ">
+              <p className="w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg font-black ">
                 31
               </p>
               <span className="order-last hover:underline">
@@ -103,7 +103,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 22"
               >
@@ -122,7 +122,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg"
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
                 height="36"
@@ -141,7 +141,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 25 16"
               >
@@ -166,7 +166,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
                 height="36"
@@ -185,7 +185,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
                 height="36"
@@ -210,7 +210,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
                 height="36"
@@ -229,7 +229,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                 viewBox="0 0 21 16"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -248,7 +248,7 @@ function Sidebar({ handleCloseAll }) {
               onClick={handleCloseAll}
             >
               <svg
-                className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg font-black "
+                className="w-8 bg-[hsla(0,0%,100%,.16)] py-2 px-2 rounded-lg font-black "
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
               >
@@ -269,7 +269,7 @@ function Sidebar({ handleCloseAll }) {
                   onClick={handleCloseAll}
                 >
                   <svg
-                    className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                    className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 21 16"
                   >
@@ -290,7 +290,7 @@ function Sidebar({ handleCloseAll }) {
                   onClick={handleCloseAll}
                 >
                   <svg
-                    className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
+                    className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg font-black "
                     xmlns="http://www.w3.org/2000/svg"
                     width="36"
                     height="36"
@@ -311,7 +311,7 @@ function Sidebar({ handleCloseAll }) {
         >
           {!showAllPlatforms && (
             <svg
-              className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg "
+              className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg "
               xmlns="http://www.w3.org/2000/svg"
               width="36"
               height="36"
@@ -323,7 +323,7 @@ function Sidebar({ handleCloseAll }) {
           )}
           {showAllPlatforms && (
             <svg
-              className="max-w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg "
+              className="w-8 bg-[hsla(0,0%,100%,.16)] py-1 px-1 rounded-lg "
               xmlns="http://www.w3.org/2000/svg"
               width="36"
               height="36"
