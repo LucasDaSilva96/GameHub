@@ -12,7 +12,7 @@ function AddToCollectionBtn({ data }) {
   return (
     <React.Fragment>
       {!hasAdded ? (
-        <div className="ml-[auto] z-[50] flex items-center gap-1">
+        <div className="ml-[auto] z-[20] flex items-center gap-1">
           <span>Add to your collection</span>
           <img
             src="/icon/folder-plus.svg"
@@ -26,7 +26,7 @@ function AddToCollectionBtn({ data }) {
           />
         </div>
       ) : (
-        <div className="ml-[auto] z-[50] flex items-center gap-1">
+        <div className="ml-[auto] z-[20] flex items-center gap-1">
           <span>Remove from your collection</span>
           <img
             src="/icon/folder-minus.svg"
