@@ -34,9 +34,10 @@ function BestOfTheYearGames() {
   });
   window.addEventListener("scroll", toggleVisible);
   if (error) return <ErrorElement />;
+  if (isFetching) return <Loader />;
+
   return (
     <React.Fragment>
-      {isFetching && <Loader />}
       <h1 className="font-black text-3xl py-5">Best of the year</h1>
       <div className="flex flex-wrap gap-4 pb-[40px] ">
         {status === "success"
